@@ -1,0 +1,27 @@
+DEPLOY.SH - README
+==================
+Deploy your code, files, configurations etc. to multiple servers via ssh.
+Perfect for the cloud. Written as a shell script (standard bourne shell) and
+runs on every unix server. No need for remote install. Just run the
+deploy.sh script on the local machine. 
+
+USAGE
+=====
+ ./deploy begin        Run begin script
+ ./deploy copy         Copy files to /tmp
+ ./deploy replace      Replace the old files
+ ./deploy finish       Run the finish script
+ 
+ To deploy run:
+ ./deploy install
+ 
+ To update already existing deployment run:
+ ./deploy update
+
+INSTALLATION
+============
+Coming soon...
+
+GOOD TO KNOW
+============
+Coming soon...

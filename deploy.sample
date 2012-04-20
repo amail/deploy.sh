@@ -1,0 +1,63 @@
+# The deployment file
+#
+# Add files ro be copied like this:
+# file  group   file
+# ------------------------------------------
+file all /usr/local/alphamail/syschk-run
+file all /usr/local/alphamail/syschk-fs
+file all /usr/local/alphamail/syschk-ifdown
+file all /usr/local/alphamail/syschk-udev
+file all /usr/local/am-log/error
+file all /usr/local/am-log/warning
+
+# Begin script
+# Runs before everything
+BEGIN:
+# Add commands here to run before the deployment
+# ------------------------------------------
+echo $DEPLOY_GROUP
+if [ -d '/usr/local/alphamail/' ]; then
+        echo 'Alphamail folder exists...'
+else
+        echo 'Creating alphamail folder...'
+        sudo mkdir /usr/local/alphamail
+fi
+# ------------------------------------------
+exit
+
+# Finishing script
+# Runs after everything
+FINISH:
+# Add commands here to finish the deployment
+# ------------------------------------------
+echo $DEPLOY_GROUP
+sudo chmod 755 /usr/local/alphamail/*
+sudo chown root:root /usr/local/alphamail/*
+sudo chmod 755 /usr/local/am-log/error
+sudo chmod 755 /usr/local/am-log/warning
+sudo chown root:root /usr/local/am-log/error
+sudo chown root:root /usr/local/am-log/warning
+ Add to crontabs
+if [ -d "/var/lib/redis/" ]; then
+       sudo crontab -u redis -l > /tmp/am-crontab      
+       sudo echo "*/5 * * * * /bin/bash /usr/local/alphamail/syschk-run" >> /tmp/am-crontab
+       crontab -u redis am-crontab
+else
+        sudo crontab -u root -l > /tmp/am-crontab      
+        sudo echo "*/5 * * * * /bin/bash /usr/local/alphamail/syschk-run" >> /tmp/am-crontab
+        sudo crontab -u root /tmp/am-crontab
+fi
+sudo rm /tmp/am-crontab
+# -----------------------------------------
+exit
+
+# Update script
+# Runs when call --update
+UPDATE:
+# Add commands here to do the update
+# ------------------------------------------
+echo "I'm update!"
+echo "Server group: ${DEPLOY_GROUP}"
+# ------------------------------------------
+exit
+
