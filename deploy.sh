@@ -57,7 +57,7 @@ USER_NAME=$(echo "$USER" | cut -d',' -f2)
 USER_KEY=$(echo "$USER" | cut -d',' -f3)
 
 # get server list
-SERVERS=$(cat /etc/deploy.conf | sed -e '/^$/ d' -e '/^[#].*/ d')
+SERVERS=$(cat /etc/deploy.conf | sed -e '/^$/ d' -e '/^[#u].*/ d')
 
 # get file list
 FILES=$(cat /$DIR/.deploy | sed -e '/^$/ d' -e '/^[#].*/ d' -e '/BEGIN\:/,$ d')
