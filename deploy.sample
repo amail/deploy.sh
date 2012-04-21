@@ -1,7 +1,7 @@
-# (C) 2012 Comfirm AB
 # deploy.sh
 # The deployment file
-#
+# Copyright (c) 2012, Comfirm AB
+
 # Add files to be copied.
 # file  group   file
 # ------------------------------------------

@@ -11,6 +11,10 @@ Authors:
 Jack Engqvist Johansson, Comfirm AB
 http://comfirm.se
 
+License:
+BSD 3-Clause
+See the LICENSE file
+
 USAGE
 =====
  To deploy, run:
@@ -19,11 +23,14 @@ USAGE
  To update already existing deployment, run:
  ./deploy --update
  
+ It will run copy, replace and update-s2...
+ 
  Partial deployment options:
  ./deploy --begin        Run begin script
  ./deploy --copy         Copy files to /tmp
  ./deploy --replace      Replace the old files
  ./deploy --finish       Run the finish script
+ ./deploy --update-s2    Run the update script, only
 
 WHAT YOU NEED
 =============
