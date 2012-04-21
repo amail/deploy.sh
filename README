@@ -41,7 +41,7 @@ WHAT YOU NEED
  * sh or bash.
  
  Note:
- 	This script was designed for cloud computing.
+ 	This script was designed for elastic cloud computing.
 
 INSTALLATION
 ============
@@ -59,5 +59,5 @@ TIPS & TRIX
    everytime there's new servers or if the old ones need any updates.
    
    
-Don't be afraid to fork it and send a pull request. Any improvement are welcome.
+Don't be afraid to fork it and send a pull request. Any improvements are welcome.
 
