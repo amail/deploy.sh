@@ -18,10 +18,10 @@ See the LICENSE file
 USAGE
 =====
  To deploy, run:
- ./deploy --install
+ ./deploy --install [ .deploy location ]
  
  To update already existing deployment, run:
- ./deploy --update
+ ./deploy --update [ .deploy location ]
  
  It will run copy, replace and update-s2...
  
@@ -31,6 +31,9 @@ USAGE
  ./deploy --replace      Replace the old files
  ./deploy --finish       Run the finish script
  ./deploy --update-s2    Run the update script, only
+ 
+ If the location where the .deploy file isn't specified, deploy.sh will assume
+ it's in the current directory.
 
 WHAT YOU NEED
 =============
