@@ -1,27 +1,51 @@
-DEPLOY.SH - README
-==================
+COMFIRM DEPLOY.SH - README
+==========================
+(C) 2012 Comfirm AB
+
 Deploy your code, files, configurations etc. to multiple servers via ssh.
 Perfect for the cloud. Written as a shell script (standard bourne shell) and
 runs on every unix server. No need for remote install. Just run the
 deploy.sh script on the local machine. 
 
+Authors:
+Jack Engqvist Johansson, Comfirm AB
+http://comfirm.se
+
 USAGE
 =====
- ./deploy begin        Run begin script
- ./deploy copy         Copy files to /tmp
- ./deploy replace      Replace the old files
- ./deploy finish       Run the finish script
+ To deploy, run:
+ ./deploy --install
  
- To deploy run:
- ./deploy install
+ To update already existing deployment, run:
+ ./deploy --update
  
- To update already existing deployment run:
- ./deploy update
+ Partial deployment options:
+ ./deploy --begin        Run begin script
+ ./deploy --copy         Copy files to /tmp
+ ./deploy --replace      Replace the old files
+ ./deploy --finish       Run the finish script
+
+WHAT YOU NEED
+=============
+ * The same username to all servers.
+ * An ssh keyfile without passphrase.
+ * The ssh key should be the same for all servers.
+ * [optional] Root access or sudo without password.
+ 
+ Note:
+ 	This script was designed for cloud computing.
 
 INSTALLATION
 ============
-Coming soon...
-
-GOOD TO KNOW
-============
-Coming soon...
+ * Copy deploy.conf to /etc/deploy.conf
+ * Create a .deploy file in your project. You can use the sample deploy file
+   shipped with this release. Just make sure to rename it.
+ * Put the deploy.sh in a handy place like /usr/local/sbin/deploy.sh and make it
+   executable. If you want you can even put it in your project location.
+   
+TIPS & TRIX
+===========
+ * To make it even easier you can let any heartbeat software update
+   the deploy.conf automaticly.
+ * Write your .deploy file with if statements etc. to make it easy to rerun it
+   everytime there's new servers or if the old ones need any updates.
