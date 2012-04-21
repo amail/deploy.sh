@@ -3,7 +3,7 @@ COMFIRM DEPLOY.SH - README
 (C) 2012 Comfirm AB
 
 Deploy your code, files, configurations etc. to multiple servers via ssh.
-Perfect for the cloud. Written as a shell script (standard bourne shell) and
+Perfect for the cloud. Written as a shell script (sh, standard bourne shell) and
 runs on every unix server. No need for remote install. Just run the
 deploy.sh script on the local machine. 
 
@@ -38,6 +38,7 @@ WHAT YOU NEED
  * An ssh keyfile without passphrase.
  * The ssh key should be the same for all servers.
  * [optional] Root access or sudo without password.
+ * sh or bash.
  
  Note:
  	This script was designed for cloud computing.
@@ -53,6 +54,10 @@ INSTALLATION
 TIPS & TRIX
 ===========
  * To make it even easier you can let any heartbeat software update
-   the deploy.conf automaticly.
+   the deploy.conf automatically.
  * Write your .deploy file with if statements etc. to make it easy to rerun it
    everytime there's new servers or if the old ones need any updates.
+   
+   
+Don't be afraid to fork it and send pull request. Any improvements are welcome.
+
