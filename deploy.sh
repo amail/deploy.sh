@@ -40,21 +40,50 @@
 # ---------------------------------------------
 # Usage:
 # ---------------------------------------------
-# ./deploy begin        Run begin script
-# ./deploy copy         Copy files to /tmp
-# ./deploy replace      Replace the old files
-# ./deploy finish       Run the finish script
+# To deploy, run:
+# ./deploy --install [ .deploy location ]
 # 
-# To deploy run:
-# ./deploy install
+# To update already existing deployment, run:
+# ./deploy --update [ .deploy location ]
 # 
-# To update already existing deployment run:
-# ./deploy update
+# It will run copy, replace and update-s2...
+# 
+# Partial deployment options:
+# ./deploy --begin        Run begin script
+# ./deploy --copy         Copy files to /tmp
+# ./deploy --replace      Replace the old files
+# ./deploy --finish       Run the finish script
+# ./deploy --update-s2    Run the update script, only
+# 
+# If the location where the .deploy file isn't specified, deploy.sh will assume
+# it's in the current directory.
 # ---------------------------------------------
 
 APP="$0"
 COMMAND=$1
 DIR="$2"
+
+if [ "$1" = "" ]; then
+ echo "
+ To deploy, run:
+ ./deploy --install [ .deploy location ]
+ 
+ To update already existing deployment, run:
+ ./deploy --update [ .deploy location ]
+ 
+ It will run copy, replace and update-s2...
+ 
+ Partial deployment options:
+ ./deploy --begin        Run begin script
+ ./deploy --copy         Copy files to /tmp
+ ./deploy --replace      Replace the old files
+ ./deploy --finish       Run the finish script
+ ./deploy --update-s2    Run the update script, only
+ 
+ If the location where the .deploy file isn't specified, deploy.sh will assume
+ it's in the current directory."
+ exit
+fi
 
 # clean up the location string
 if [ "$DIR" = "" ]; then
@@ -81,6 +110,9 @@ elif [ "$COMMAND" = "--update" ]; then
         $APP --update-s2
         echo "Update is done"
         exit
+elif [ "$COMMAND" = "--help" ]; then
+	$APP
+	exit
 fi
 
 # get user info
