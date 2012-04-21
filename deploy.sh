@@ -2,9 +2,16 @@
 # (C) 2012 Comfirm AB
 # deploy.sh
 # Easy deployment to multiple servers.
-# Deploy code, files, settings and much more to multiple servers via ssh
+# Deploy code, files, settings and much more to multiple servers via ssh.
 # 
-# Be sure to edit the .deploy file and /etc/deploy.conf before running this script.
+# Authors: 
+# ---------------------------------------------
+# Jack Engqvist Johansson, Comfirm AB
+# http://comfirm.se
+# ---------------------------------------------
+#
+# Be sure to edit the .deploy file and /etc/deploy.conf before running this
+# script.
 # ---------------------------------------------
 # Usage:
 # ---------------------------------------------
@@ -108,14 +115,12 @@ do
                                 FILE_GROUP=no
                         elif [ "$FILE_GROUP_NAME" = "$GROUP_NAME" ]; then
                                 filename=$(basename $file)
-                                echo " * $filename"
+                                echo " * $filename\t=> $server ($GROUP_NAME)"
                                 if [ "$COMMAND" = "--copy" ]; then
                                         # copy files
-                                        echo "Copying files to $server($GROUP_NAME)..."
                                         scp -i $USER_KEY $file $USER_NAME@$server:/tmp/$filename >> /dev/null
                                 elif [ "$COMMAND" = "--replace" ]; then
                                         # move files    
-                                        echo "Replacing files at $server($GROUP_NAME)..."
                                         echo "sudo mv /tmp/$filename $file" | ssh -i $USER_KEY $USER_NAME@$server
                                 else
                                         echo "Wrong options"
