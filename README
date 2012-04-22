@@ -1,4 +1,5 @@
-COMFIRM DEPLOY.SH - README
+==========================
+Comfirm deploy.sh - README
 ==========================
 (C) 2012 Comfirm AB
 
@@ -15,7 +16,7 @@ License:
 BSD 3-Clause
 See the LICENSE file
 
-USAGE
+Usage
 =====
  To deploy, run:
  ./deploy --install [ .deploy location ]
@@ -35,30 +36,30 @@ USAGE
  If the location where the .deploy file isn't specified, deploy.sh will assume
  it's in the current directory.
 
-WHAT YOU NEED
+What you need
 =============
- * The same username to all servers.
- * An ssh keyfile without passphrase.
- * The ssh key should be the same for all servers.
- * [optional] Root access or sudo without password.
- * sh or bash.
+ - The same username to all servers.
+ - An ssh keyfile without passphrase.
+ - The ssh key should be the same for all servers.
+ - [optional] Root access or sudo without password.
+ - sh or bash.
  
  Note:
  	This script was designed for elastic cloud computing.
 
-INSTALLATION
+Installation
 ============
- * Copy deploy.conf to /etc/deploy.conf
- * Create a .deploy file in your project. You can use the sample deploy file
+ - Copy deploy.conf to /etc/deploy.conf
+ - Create a .deploy file in your project. You can use the sample deploy file
    shipped with this release. Just make sure to rename it.
- * Put the deploy.sh in a handy place like /usr/local/sbin/deploy.sh and make it
+ - Put the deploy.sh in a handy place like /usr/local/sbin/deploy.sh and make it
    executable. If you want you can even put it in your project location.
    
-TIPS & TRIX
+Tips & trix
 ===========
- * To make it even easier you can let any heartbeat software update
+ - To make it even easier you can let any heartbeat software update
    the deploy.conf automatically.
- * Write your .deploy file with if statements etc. to make it easy to rerun it
+ - Write your .deploy file with if statements etc. to make it easy to rerun it
    everytime there's new servers or if the old ones need any updates.
    
    
